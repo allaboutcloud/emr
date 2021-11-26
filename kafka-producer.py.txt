@@ -1,0 +1,7 @@
+#! /usr/bin/env python
+
+from kafka import KafkaProducer
+producer = KafkaProducer(bootstrap_servers='b-2.demo-cluster-1.4zyeq1.c1.kafka.eu-central-1.amazonaws.com:9092,b-1.demo-cluster-1.4zyeq1.c1.kafka.eu-central-1.amazonaws.com:9092')
+for testing_number in range(100):
+        producer.send('quickstart-events',key='{}'.format(testing_number),value='message is {}'.format(testing_number))
+        print('message is {}'.format(testing_number))

@@ -1,0 +1,3 @@
+pyspark --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.8
+df = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "localhost:9092").option("subscribe", "test1_topic").load()
+console_output=df.writeStream.outputMode("update").format("console").start()
